@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-2">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input appNumberOnly [(ngModel)]="cliente.id" class="form-control text-right" id="id" disabled="disabled">
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input [(ngModel)]="cliente.nome" class="form-control" id="nome">
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-2">
+      <div class="form-group">
+        <label for="idade">Idade</label>
+        <input appNumberOnly [(ngModel)]="cliente.idade" class="form-control text-right" id="idade">
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-12 col-md-2 mt-2"> 
+      <button (click)="add()" [ngClass]="{'btn-warning':(!cliente.nome || !cliente.idade),
+      'btn-primary':(cliente.nome && cliente.idade)}" class="btn float-left mt-1">Salvar</button>
+    <!--  Entre parênteses = event bind,
+     entre colchetes = property bind,
+      como é uma classe é um class bind -->
+    </div> 
+    <div class="col-12 col-md-10 mt-2" *ngIf="!cliente.nome || !cliente.idade">
+      <div class="alert alert-warning">
+       
+        Preencha os campos nome e idade e clique no botão salvar.
+      </div>
+    </div>
+  </div>
+</div>
